@@ -1,0 +1,24 @@
+<adapter-config xsdTargetNamespace="http://xmlns.oracle.com/pcbpel/adapter/salesforce/ReplicateApplication/Project1/SalesforceReference/types" adapterType="SOAP" name="SalesforceReferencePortType" adapter="salesforce" wsdlLocation="SalesforceReference.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory location="cloud/CloudAdapter">
+    <non-managed-connection managedConnectionFactoryClassName="oracle.cloud.connector.salesforce.SalesforceConnectionFactory">
+      <property name="cloud.adapter.sdk.version" value="16.3.5"/>
+      <property name="targetWSDLURL" value="../WSDLs/dev_04_02_2018_known_good.wsdl"/>
+      <property name="csfkey" value="DEV_INTEGRATION"/>
+      <property name="csfMap" value="oracle.wsm.security"/>
+      <property name="cloud.adapter.plugin.version" value="16.3.5"/>
+      <property name="tlsVersion" value="TLSv1.2"/>
+      <property name="applicationVersion" value="42.0"/>
+    </non-managed-connection>
+  </connection-factory>
+  <endpoint-interaction portType="SalesforceReferencePortType" operation="create">
+    <interaction-spec className="oracle.tip.adapter.cloud.CloudInteractionSpec">
+      <property name="targetOperation" value="create"/>
+      <property name="operationPath" value=""/>
+      <property name="selectedObjects" value="TSA_CSC_System_Log__c"/>
+      <property name="oracle.cloud.rt.sfdcAdapterNamespace" value="http://xmlns.oracle.com/pcbpel/adapter/salesforce/ReplicateApplication/Project1/SalesforceReference#new"/>
+      <property name="integrationSchemaNamespace" value="http://xmlns.oracle.com/pcbpel/adapter/salesforce/ReplicateApplication/Project1/SalesforceReference/types"/>
+      <property name="outboundWSDLType" value="Enterprise WSDL"/>
+      <property name="integrationWSDLNamespace" value="http://xmlns.oracle.com/pcbpel/adapter/salesforce/ReplicateApplication/Project1/SalesforceReference"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>
